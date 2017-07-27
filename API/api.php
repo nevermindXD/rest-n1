@@ -66,7 +66,7 @@
 			}
 			else{			//ALL ELEMENTS
 
-				$query="SELECT * FROM ".$this->tableName."  order by date_reg desc";
+				$query="SELECT * FROM ".$this->tableName;
 				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
 
 				if($r->num_rows > 0){
@@ -78,6 +78,14 @@
 				}
 			}
 			$this->response('',204);	// If no records "No Content" status
+		}
+
+		private function get(){	
+			if($this->get_request_method() != "GET"){
+				$this->response('',406);
+			}
+
+			
 		}
 		
 		private function insert(){
