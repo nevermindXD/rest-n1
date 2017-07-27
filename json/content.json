@@ -1,0 +1,7 @@
+// JSON Document
+{
+"empresa": {
+	"titulo":'Somos JoPi',
+	"contenido":"JoPi nace de la necesidad de crear una nueva forma de proteger tu celular contra robo con violencia, sin trámites engorrosos, sin letras chiquitas, y dándole un valor real a tu celular, ya que estamos convencidos que tu seguridad es primero ante cualquier bien material. Emulamos el modelo de “seguro mutualista” que ha tenido gran aceptación en países como Alemania, Estados Unidos de América, Sudáfrica, España, Autralia, China, y en muchos otro mas, donde un grupo de personas se asocian mediante una plataforma para proteger un bien en común, bajando costos de su aportación mensual para proteger el bien y agilizando así el pago de algún percance, pero sobre todo en dado caso que no haya percance alguno por pagar, pasado un año se devuelve un porcentaje de lo que invertiste por proteger tu bien. Somos una empresa que está convencida que la unión hace la fuerza, y México ha demostrado que cuando se une por una misma causa, sale avante ante cualquier adversidad."   
+	}
+}

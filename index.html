@@ -1,0 +1,585 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>JoPi</title>
+    <!--Version 1.0.1-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="https://use.typekit.net/aah4bmd.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+    <script src="https://use.fontawesome.com/da6a6ab0f3.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript">
+        window.$zopim || (function(d, s) {
+            var z = $zopim = function(c) {
+                    z._.push(c)
+                },
+                $ = z.s =
+                d.createElement(s),
+                e = d.getElementsByTagName(s)[0];
+            z.set = function(o) {
+                z.set.
+                _.push(o)
+            };
+            z._ = [];
+            z.set._ = [];
+            $.async = !0;
+            $.setAttribute('charset', 'utf-8');
+            $.src = 'https://v2.zopim.com/?4x7MSSIiVWroBrfhyQTlD7FdL7bu9VHK';
+            z.t = +new Date;
+            $.
+            type = 'text/javascript';
+            e.parentNode.insertBefore($, e)
+        })(document, 'script');
+    </script>
+    <!--End of Zendesk Chat Script-->
+</head>
+
+<body class="index">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!--forma para cotizar-->
+    <section class="forma-cotizar container-fluid">
+        <div class="row justify-content-start mb-2">
+            <div class="col-3 col-sm-2">
+                <button type="button" class="close d-flex" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="img-fluid img-form d-flex flex-column align-items-center justify-content-center">
+                <h5 class="header-form text-center display-4 m-auto">Estás a un paso de proteger tu celular</h5>
+                <p class="text-center">Por favor, contesta para saber si podemos proteger tu equipo</p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center form-holder">
+
+            <div class="col-10">
+                <form id="forma_main" enctype="multipart/form-data" method="post" action="php/forma_main.php">
+                    
+                    <div class="form-group">
+                        <label for="forma_index_nombre">Tu nombre</label>
+                        <input required type="name" class="form-control" id="forma_index_nombre" aria-describedby="nombre_index" placeholder="Hola!" name="forma_index_nombre">
+                        <small id="nombre_index" class="form-text text-muted"></small> </div>
+                    <div class="form-group">
+                        <label for="marcas_select"><i class="fa fa-rocket"></i> Marca </label>
+                        <select name="Marca" class="form-control" id="marcas_select">
+              <option name="cargando_marcas">Cargando marcas...</option>
+              </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modelos_select"><i class="fa fa-mobile fa-lg"></i> Modelo </label>
+                        <select name="Modelo" class="form-control" id="modelos_select">
+                
+              </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="form_index_factura"><i class="fa fa-dollar fa-lg"></i> Precio factura </label>
+                        <input required type="number" min="6000" name="precio_factura" id="form_index_factura" class="form-control">
+                    </div>
+                    <div class="form-group">
+                       <label for="form_index_mail"><i class="fa fa-envelope"></i> e-mail</label>
+                        <input name="email" id="form_index_mail"required  class="form-control" type="email" placeholder="e-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="foto_factura"><i class="fa fa-file-image-o"></i> Por favor proporciona una foto de tu factura</label>
+                        <input name="foto_fact" type="file" class="form-control-file" id="foto_factura" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                    </div>
+                    <input name="prim" type="hidden">
+                    <button class="btn btn-secondary mt-2" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar <i style="display:none" class="fa fa-cog fa-spin fa-fw"></i>
+<span class="sr-only">Loading...</span></button>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <p class="text-center">JoPi - Innovando la forma de protegerte</p>
+        </div>
+
+
+    </section>
+    <!--fin forma para cotizar-->
+
+    <!--content-overlay-->
+    <section class="container overlay-content h-100">
+        <div class="row my-2">
+            <div class="col-3 col-sm-1">
+                <button type="button" class="close d-flex" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8">
+                <div class="overlay-img img-fluid w-100"></div>
+            </div>
+            <div class="col-12 col-sm-4">
+                <h4 class="content-header">Content-header</h4>
+                <span class="align-self-end undertitle"></span>
+                <p class="content-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione nobis, ipsa consequatur, sunt adipisci minima recusandae atque eum asperiores cum in blanditiis fugiat reiciendis animi natus? Ab rem hic nisi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--content-overlay video-->
+    <section class="container content-video  h-100">
+        <div class="row my-2">
+            <div class="col-3 col-sm-1">
+                <button type="button" class="close d-flex" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-11">
+                <video id="vid_main" controls src="" class="embed-responsive"></video>
+            </div>
+        </div>
+    </section>
+    <!--fin content-overlay-->
+
+    <nav class="navbar navbar-light bg-secondary navbar-toggleable-sm navbar-full fixed-top sps">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarDflt" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="bodymovin" style="width:30px;height:30px;" id="menu_btn"></div>
+  </button>
+        <a class="navbar-brand" href="index.html"> <img src="img/jopi_logo.svg" alt=""> </a>
+        <div class="collapse navbar-collapse" id="navbarDflt">
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item"></li>
+                <li class="nav-item"> </li>
+                <li class="nav-item"> </li>
+                <li class="nav-item mr-2"><a class="nav-link" href="#">Reportar un incidente</a></li>
+            </ul>
+
+            <!--link forma de contacto-->
+            <form action="http://app.jopi.com.mx/mi-cuenta" class="form-inline align-content-center">
+                <button class="btn nav-btn mx-auto"> Iniciar sesión <i class="fa fa-lg fa-user-circle-o"></i> </button>
+            </form>
+        </div>
+    </nav>
+
+
+
+    <main class="jumbotron jumbotron-fluid hero d-flex flex-column align-items-center justify-content-center">
+        <div class="bodymovin" id="nubes"></div>
+        <div class="bodymovin" id="scroll"></div>
+        <div class="container align-self-center m-auto h-25">
+            <h1 id="titulo_hero" class="m-auto text-center display-4">Bienvenido a JoPi</h1>
+            <p class="lead d-flex justify-content-center hidden-sm-down">
+                <a id="" class="btn btn-primary btn-lg m-2 video_pres" href="#" role="button">ver video <i class="fa fa-play-circle"></i></a>
+                <a class="btn btn-primary btn-lg m-2 btn_cotizador" href="#" role="button">Cotizar <i class="fa fa-umbrella"></i></a>
+            </p>
+            <p class="lead d-flex justify-content-center hidden-sm-up">
+                <a class="btn btn-primary m-2" href="#" role="button">ver video <i class="fa fa-play-circle video_pres" id=""></i></a>
+                <a class="btn btn-primary m-2 btn_cotizador" href="#" role="button">Cotizar <i class="fa fa-umbrella"></i></a>
+            </p>
+        </div>
+        <div class="a_presentacion"></div>
+    </main>
+
+
+
+
+    <section class="container seccion presentacion">
+        <div class="row justify-content-center title1 mb-4 d-flex flex-column justify-content-center m-fip">
+            <h3 class="text-center w-50 mx-auto my-2">Quiénes somos</h3>
+            <p class="text-center text-muted">JoPi</p>
+        </div>
+        <div class="row justify-content-center m-fip">
+            <div class="col-11 col-sm-4">
+                <div class="card my-2">
+                    <img src="img/aspecto1.svg" alt="" class="card-img-top img-fluid p-2">
+                    <div class="card-header">
+                        <h4 class="card-title text-center">Innovación</h4>
+                    </div>
+                    <div class="card-block">
+                        <p>JoPi nace de la necesidad de crear una nueva forma de proteger tu celular contra robo con violencia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-11 col-sm-4">
+                <div class="card my-2">
+                    <img src="img/aspecto2.svg" alt="" class="card-img-top img-fluid p-2">
+                    <div class="card-header">
+                        <h4 class="card-title text-center">Modelo probado</h4>
+                    </div>
+                    <div class="card-block">
+                        <p>Emulamos el modelo de “seguro mutualista” que ha tenido gran aceptación en Europa y Asia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-11 col-sm-4">
+                <div class="card my-2">
+                    <img src="img/aspecto3.svg" alt="" class="card-img-top img-fluid p-2">
+                    <div class="card-header">
+                        <h4 class="card-title text-center">La unión hace la fuerza</h4>
+                    </div>
+                    <div class="card-block">
+                        <p>Somos una empresa que cree en el poder de la fuerza y la unión de los mexicanos contra la adversidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5"><button id="" class="btn btn-primary btn-large col-6 btn-block qnSms">Conoce más</button></div>
+        <div class="a_caracteristicas"></div>
+    </section>
+
+
+
+    <section class="container seccion caracteristicas">
+        <div class="row justify-content-center title1 mb-4 d-flex flex-column justify-content-center">
+            <h3 class="text-center w-50 mx-auto my-2">JoPi Protege tu celular</h3>
+            <p class="text-center text-muted">¿Cómo protejo mi celular ante robo con violencia?</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 d-flex flex-column">
+                <div id="seccion1anim" class="bodymovin"></div>
+                <h3 class="text-center">Fácil de activar</h3>
+                <p class="text-center">Sólo necesitamos tu factura, datos del beneficiario y el número de IMEI para poder protegerte</p>
+            </div>
+            <div class="col-sm-4 d-flex flex-column">
+                <div id="seccion2anim" class="bodymovin" width="600" height="400px"></div>
+                <h3 class="text-center">Beneficios</h3>
+                <p class="text-center">Recibe el 40% de lo que pagaste en primas si nadie de tu grupo reporta un incidente</p>
+            </div>
+            <div class="col-sm-4 d-flex flex-column">
+                <div id="seccion3anim" class="bodymovin" width="600" height="400px"></div>
+                <h3 class="text-center">Accesible</h3>
+                <p class="text-center">Cuotas fijas accesibles que te permiten sentirte más tranquilo</p>
+            </div>
+        </div>
+        <div class="a_ventajas"></div>
+    </section>
+
+
+
+    <section class="container seccion ventajas">
+        <div class="row justify-content-center title1 mb-4 d-flex flex-column justify-content-center">
+            <h3 class="text-center w-50 mx-auto my-2">Nuestras ventajas</h3>
+            <p class="text-center text-muted">Algunas razones por las que vas a <i class="fa fa-heart"></i> a Jopi </p>
+        </div>
+        <div class="row ventaja ventaja1 m-fil">
+            <div class="col-sm-5 d-flex flex-column justify-content-center">
+                <h4 class="">Celebramos tu seguridad</h4>
+                <span class="undertitle"></span>
+                <p class="">La única protección mutualista que te regresa el 40% de tu aportación en dado caso que ningún integrante de tu grupo sufra siniestro alguno <strong>Sólo nosotros te regresamos dinero si no usas nuestro servicio</strong></p>
+            </div>
+            <div class="col-sm-7 d-flex justify-content-center"><img src="img/ventaja1.svg" alt="" class="img-fluid w-50"></div>
+        </div>
+        <div class="row ventaja ventaja2 m-fir">
+            <div class="push-sm-7 col-sm-5 d-flex flex-column justify-content-center">
+                <h4 class="text-right">Sin trámites engorrosos</h4>
+                <span class="align-self-end undertitle"></span>
+                <p class="text-right">En caso de sufrir un percance de robo con violencia, tras revisar foto del acta del MP, se transfiere la cantidad via SPEI a una cuenta bancaria con el valor del celular <strong>Así de fácil</strong></p>
+            </div>
+            <div class="pull-sm-5 col-sm-7 d-flex justify-content-center"><img src="img/ventaja2.svg" alt="" class="img-fluid w-50"></div>
+        </div>
+        <div class="row ventaja ventaja3 m-fil">
+            <div class="col-sm-5 d-flex flex-column justify-content-center">
+                <h4 class="">Sin depreciación</h4>
+                <span class="undertitle"></span>
+                <p class="">el celular valdrá para nosotros el 100% de su valor facturado por dos años. <strong>Sin depreciar ni malbaratar</strong></p>
+            </div>
+            <div class="col-sm-7 d-flex justify-content-center"><img src="img/ventaja3.svg" alt="" class="img-fluid w-25"></div>
+        </div>
+        <div class="row ventaja ventaja4 m-fir">
+            <div class="push-sm-7 col-sm-5 d-flex flex-column justify-content-center">
+                <h4 class="text-right">No hay "deducible" en caso de robo</h4>
+                <span class="align-self-end undertitle"></span>
+                <p class="text-right">Sólo con nosotros no pagas el famoso "deducible" en un evento al año</p>
+            </div>
+            <div class="pull-sm-5 col-sm-7 d-flex justify-content-center"><img src="img/ventaja4.svg" alt="" class="img-fluid w-50"></div>
+        </div>
+        <div class="a_datos"></div>
+    </section>
+
+
+
+
+
+    <section class="container seccion datos">
+        <div class="row justify-content-center title1 mb-4 d-flex flex-column justify-content-center">
+            <h3 class="text-center w-50 mx-auto my-2">¿Sabías que?</h3>
+            <p class="text-center text-muted">Datos que te van a interesar</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card card-inverse my-2">
+                    <canvas class="card-img-top " id="Chart_cel_asegurados" width="400" height="400"></canvas>
+                    <div class="card-header"></div>
+                    <div class="card-block">
+                        <h3 class="card-title">Celulares protegidos en México</h3>
+                        <p class="card-text">Súmate al porcentaje de la gráfica que opta por tranquilidad</p>
+                        <a href="#" class="btn btn-secondary">Protegerse con Jopi</a> </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-inverse my-2">
+                    <canvas class="card-img-top " id="Chart_cel_robo" width="400" height="400"></canvas>
+                    <div class="card-header"></div>
+                    <div class="card-block">
+                        <h3 class="card-title">Celulares robados en México</h3>
+                        <p class="card-text">Todos los días se roban en México 1670 celulares</p>
+                        <a href="#" class="btn btn-secondary">Protegerse con Jopi</a> </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card card-inverse my-2">
+                    <canvas class="card-img-top " id="Chart_asalto" width="400" height="400"></canvas>
+                    <div class="card-header"></div>
+                    <div class="card-block">
+                        <h3 class="card-title">Asaltos con violencia por hora en México</h3>
+                        <p class="card-text">Evita un desenlace trágico, entrega tu celular sabiendo que JoPi te respalda</p>
+                        <a href="#" class="btn btn-secondary">Protegerse con Jopi</a> </div>
+                </div>
+            </div>
+            <!--
+  	<div class="col-sm-3">
+  		<div class="card card-inverse"><canvas class="card-img-top " id="Chart_cel_asegurados" width="400" height="400"></canvas><div class="card-header">	</div>
+  			<div class="card-block">
+        <h3 class="card-title">Special title treatment</h3>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+  		</div>
+  	</div>
+  	
+  	-->
+        </div>
+    </section>
+    <section class="container-fluid seccion footer p-4">
+        <div class="row justify-content-center">
+            <div class="col-4 d-flex justify-content-center">
+                <a target="_blank" href="https://www.facebook.com/jopi.coverpeer/"><i class="m-2 fa fa-facebook fa-lg"></i></a>
+                <a target="_blank" href="https://twitter.com/jopi_mx"><i class="m-2 fa fa-twitter fa-lg"></i></a>
+                <!--<a target="_blank" href=""><i class="m-2 fa fa-youtube fa-lg"></i></a> -->
+                <a target="_blank" href="https://www.instagram.com/jopi9902/"><i class="m-2 fa fa-instagram fa-lg"></i></a> </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-3 d-flex flex-column">
+                <h5 class="">Jopi</h5>
+                <ul class="footer-links">
+                    <li><a class="cont_ext qnSms" id="qnSms" href="">Quiénes somos</a></li>
+                    <li><a class="cont_ext video_pres" href="">Video explicativo</a></li>
+                    <li><a class="cont_ext" id="legal" href="">Legal</a></li>
+                    <li><a class="cont_ext" id="avisPriv" href="">Aviso de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 d-flex flex-column">
+                <h5 class="">Atención al cliente</h5>
+                <ul class="footer-links">
+                    <li class=""><a href="mailto:contacto@jopi.com.mx?subject=Hola JoPi">Escríbenos a contacto@jopi.com.mx</a></li>
+                    <li class=""><a href="">Chat</a></li>
+                    <li class=""><a href="">Llámanos</a></li>
+                    <li class=""><a href="">Reportar un percance</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3 d-flex flex-column">
+                <h5 class="">Secciones</h5>
+                <ul class="footer-links">
+                    <li><a id="faq" href="">FAQ (Preguntas frecuentes)</a></li>
+                    <li><a id="scroll_rcv" href="#">¿Cómo proteger mi celular contra robo con violencia?</a></li>
+                    <li><a id="scroll_vntj" href="">Ventajas de proteger mi celular con JoPi</a></li>
+                    <li><a id="scroll_sbq" href="">¿Sabías Que?</a></li>
+                    <li><a href="">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3"><img src="img/jopi_logo_bco.svg" alt="" class="img-fluid w-75"></div>
+        </div>
+    </section>
+
+    <!--<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> 
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.6.11/bodymovin.min.js"></script>
+    <script src="js/scrollPosStyler.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="js/chartjs-plugin-deferred.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src=""></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+
+            var seccion1 = bodymovin.loadAnimation({
+                container: document.getElementById('seccion1anim'),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'json/seccion1.json'
+            });
+
+            bodyScrollPlay('#seccion1anim', seccion1);
+
+
+
+
+            var seccion2 = bodymovin.loadAnimation({
+                container: document.getElementById('seccion2anim'),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'json/seccion2.json'
+            });
+            bodyScrollPlay('#seccion2anim', seccion2);
+
+
+            var seccion3 = bodymovin.loadAnimation({
+                container: document.getElementById('seccion3anim'),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'json/seccion3.json'
+            });
+
+
+            bodyScrollPlay('#seccion3anim', seccion3);
+
+
+            var nubes = bodymovin.loadAnimation({
+                container: document.getElementById('nubes'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                rendererSettings: {
+                    preserveAspectRatio: 'xMaxYMax slice'
+                },
+                path: 'json/nubes.json'
+            });
+
+            nubes.setSpeed(.5);
+
+            var menu_btn = bodymovin.loadAnimation({
+                container: document.getElementById('menu_btn'),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'json/menu_btn.json'
+
+            });
+
+            var scroller = bodymovin.loadAnimation({
+                container: document.getElementById('scroll'),
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'json/scroller.json'
+            });
+            scroller.setSpeed(.8);
+
+
+
+            var flag = false;
+            $('#menu_btn').on('click', function() {
+                if (!flag) {
+                    menu_btn.setDirection(1);
+                    menu_btn.play()
+                    menu_btn.onComplete = function() {
+                        menu_btn.goToAndStop(24, true);
+                    }
+                    flag = true;
+                } else {
+                    menu_btn.setDirection(-1);
+                    menu_btn.play()
+                    menu_btn.onComplete = function() {
+                        menu_btn.goToAndStop(0, true);
+                    }
+                    flag = false;
+                }
+
+
+            })
+
+
+
+            $('#seccion1anim').hover(function() {
+                seccion1.setDirection(1);
+                seccion1.play();
+                seccion1.onComplete = function() {
+                    seccion1.setDirection(-1);
+                    setTimeout(function() {
+                        seccion1.play();
+                    }, 5000)
+
+                    //this.goToAndStop(0,true);
+                };
+
+            }, function() {
+                seccion1.setDirection(-1);
+            });
+
+
+            $('#seccion2anim').hover(function() {
+                seccion2.setDirection(1);
+                seccion2.play();
+                seccion2.onComplete = function() {
+                    seccion2.setDirection(-1);
+                    setTimeout(function() {
+                        seccion2.play();
+                    }, 5000)
+                    //this.goToAndStop(0,true);
+                };
+
+            }, function() {
+                seccion2.setDirection(-1);
+            });
+
+
+
+
+
+            $('#seccion3anim').hover(function() {
+                seccion3.setDirection(1);
+                seccion3.play();
+                seccion3.onComplete = function() {
+                    seccion3.setDirection(-1);
+                    setTimeout(function() {
+                        seccion3.play();
+                    }, 5000)
+                    //this.goToAndStop(0,true);
+                };
+
+            }, function() {
+                seccion3.setDirection(-1);
+            });
+
+        });
+    </script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
