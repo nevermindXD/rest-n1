@@ -80,6 +80,13 @@
 			$this->response('',204);	// If no records "No Content" status
 		}
 
+		private function getNombre(){	
+			if($this->get_request_method() != "GET"){
+				$this->response('',406);
+			}
+			
+		}
+
 
 		private function insert(){
 			if($this->get_request_method() != "POST"){
