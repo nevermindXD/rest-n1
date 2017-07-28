@@ -1,5 +1,17 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-	RewriteRule ^([a-zA-Z_-]*)$ index.php?action=$1
-	RewriteRule ^([a-zA-Z_-]*)/([0-9]+) index.php?action=$1&id=$2 [L,QSA]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-s
+	RewriteRule ^([a-zA-Z0-9_-]+)$ api.php?x=$1 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-s
+	RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ api.php?x=$1&id=$2 [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^(.*)$ api.php [QSA,NC,L]
+
+	RewriteCond %{REQUEST_FILENAME} -s
+	RewriteRule ^(.*)$ api.php [QSA,NC,L]	
 </IfModule>
