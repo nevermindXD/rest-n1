@@ -81,7 +81,7 @@
 			$this->response('',204);	// If no records "No Content" status
 		}
 
-		private function getNombre(){	
+		private function nombre(){	
 			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
