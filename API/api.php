@@ -198,24 +198,39 @@
 		}
 
 
-		private function insert_withFile(){
+		private function imagen(){
 			if($this->get_request_method() != "POST"){
 				$this->response('',406);
 			}
 
 			//SAVING FILE
-			$upDir = "../../files/ads/"; //upload directory
+			$upDir = "Cotizaciones/"; //upload directory
 			$dateUpload = date('YmdHis');
 
 			if(!is_dir($upDir)){ 			// Verify if directory exists if not then create the folder
 					if(mkdir($upDir, 0777, true)) {
-					   //echo"Directorio creado"; 
+					   $val = "Directorio creado"; 
+					}
+					else{
+						$val = "Directorio existe";
 					}
 			}
-			if(is_uploaded_file($_FILES['file_ad']['tmp_name'])){
-				$uploaded_file = $upDir . basename($_FILES['file_ad']['name']."".$dateUpload.".jpg");
+			else{
+				$val = "Directorio existe";
+
+			}
+
+			if(is_uploaded_file($_FILES['imgToUpload']['tmp_name']))
+			{
+				$uploaded_file = $upDir . basename($_FILES['imgToUpload']['name']."".$dateUpload.".jpg");
+
+				echo "<br>".$uploaded_file."<br>";
+
 				
-				if (move_uploaded_file($_FILES['file_ad']['tmp_name'], $uploaded_file)) {
+				if (move_uploaded_file($_FILES['imgToUpload']['tmp_name'], $uploaded_file)) 	
+				{
+								echo " "."<br>Subiendo archivo"."<br>";
+				$this->response($this->json($val),200);
 					$result = 1;
 				} else {
 					$result = 2;
