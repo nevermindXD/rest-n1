@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+    <form id="formoid" title="" method="post" action="https://localhost/REST-N1/API/insert">
+        <div>
+            <label class="title">Nombre</label>
+            <input type="text" id="nombre" name="nombre" >
+        </div>
+        <div>
+            <label class="title">Marca</label>
+            <input type="text" id="marca" name="marca" >
+        </div>
+        <div>
+            <label class="title">Modelo</label>
+            <input type="text" id="modelo" name="modelo" >
+        </div>
+        <div>
+            <label class="title">Precio factura</label>
+            <input type="text" id="precioFactura" name="precioFactura" >
+        </div>
+        <div>
+            <label class="title">Email</label>
+            <input type="text" id="email" name="email" >
+        </div>
+           <div>
+            <label class="title">img</label>
+            <input type="text" id="img" name="img" >
+        </div>
+           <div>
+            <label class="title">imgRuta</label>
+            <input type="text" id="imgRuta" name="imgRuta" >
+        </div>
+        <div>
+            <input type="submit" id="submitButton"  name="submitButton" value="Submit">
+        </div>
+ </form>
+
+
+</body>
+
+
+<script> 
+
+    /* attach a submit handler to the form */
+    $("#formoid").submit(function(event) {
+        
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+        var data ={
+            nombre: $('#nombre').val(), 
+            marca: $('#marca').val(),
+            modelo: $('#modelo').val(), 
+            precioFactura: $('#precioFactura').val(), 
+            email: $('#email').val(), 
+            img: $('#img').val(), 
+            imgRuta: $('#imgRuta').val()
+        };
+
+    
+        console.log(data);
+
+        $.ajax({
+                url: url,
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                data: JSON.stringify(data),
+                success: function( data, textStatus, jQxhr ){
+                    $('#response pre').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+        });
+
+
+        console.log("finalizo");
+
+    });
+
+</script>
+</html> 

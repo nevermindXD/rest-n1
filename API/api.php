@@ -52,7 +52,7 @@
 			}
 			
 			$id = (!isset($this->_request['id'])) ? 0 : (int)$this->_request['id'];
-
+			
 			if($id > 0){	//ONLY ONE
 				$result = array();
 				$query="SELECT * FROM ".$this->tableName." where ".$this->tableID." =$id";
@@ -86,22 +86,11 @@
 				$this->response('',406);
 			}
 
-				$nombre = (!isset($this->_request['nombre'])) ? 0 : (int)$this->_request['nombre'];
+				$nombre = (!isset($this->_request['nombre'])) ? 0 : $this->_request['nombre'];
+				echo $nombre;
 
-			if($nombre > 0){	//ONLY ONE
-				$result = array();
-				$query="SELECT * FROM ".$this->tableName." where ".$this->nombre." =$nombre";
-				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
-				if($r->num_rows > 0) {
-					$result = array();
-					while($row = $r->fetch_assoc()){
-						$result[] = $row;
-					}
-					$this->response($this->json($result), 200); // send user details
-				}
-			}
-			else{			//ALL ELEMENTS
-
+			if($nombre == 0){	//get all
+				
 				$query="SELECT * FROM ".$this->tableName;
 				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
 
@@ -112,6 +101,20 @@
 					}
 					$this->response($this->json($result), 200); // send user details
 				}
+			}
+			else{			//get one
+				$result = array();
+				//$query="SELECT * FROM ".$this->tableName." where ".$this->nombre." =$nombre";
+				$query="SELECT * FROM ".$this->tableName." where nombre"."=$nombre";
+				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
+				if($r->num_rows > 0) {
+					$result = array();
+					while($row = $r->fetch_assoc()){
+						$result[] = $row;
+					}
+					$this->response($this->json($result), 200); // send user details
+				}
+				
 			}
 			$this->response('',204);	// If no records "No Content" status
 			
