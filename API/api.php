@@ -196,6 +196,39 @@
 			}else
 				$this->response('',204);	// If no records "No Content" status
 		}
+
+
+		private function insert_withFile(){
+			if($this->get_request_method() != "POST"){
+				$this->response('',406);
+			}
+
+			//SAVING FILE
+			$upDir = "../../files/ads/"; //upload directory
+			$dateUpload = date('YmdHis');
+
+			if(!is_dir($upDir)){ 			// Verify if directory exists if not then create the folder
+					if(mkdir($upDir, 0777, true)) {
+					   //echo"Directorio creado"; 
+					}
+			}
+			if(is_uploaded_file($_FILES['file_ad']['tmp_name'])){
+				$uploaded_file = $upDir . basename($_FILES['file_ad']['name']."".$dateUpload.".jpg");
+				
+				if (move_uploaded_file($_FILES['file_ad']['tmp_name'], $uploaded_file)) {
+					$result = 1;
+				} else {
+					$result = 2;
+				}
+			}
+			
+			if($result == 1){
+				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
+				$success = array('status' => "Success", "msg" => "soul Created Successfully.", "id" => $this->mysqli->insert_id, "data" => $soul);
+				$this->response($this->json($success),200);
+			}else
+				$this->response('NO SE PUDO SUBIR EL ARCHIVO',204);	//"No Content" status
+		}
 		
 		/*
 		 *	Encode array into JSON
