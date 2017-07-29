@@ -219,7 +219,7 @@
 				$val = "Directorio existe";
 
 			}
-
+			///Files[NOMBRE-EN-POSTMAN]['tmp_name']
 			if(is_uploaded_file($_FILES['imgToUpload']['tmp_name']))
 			{
 				$uploaded_file = $upDir . basename($_FILES['imgToUpload']['name']."".$dateUpload.".jpg");
