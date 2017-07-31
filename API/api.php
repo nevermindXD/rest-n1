@@ -217,12 +217,17 @@
 			}
 			else{
 				$val = "Directorio existe";
-
 			}
+
+
 			///Files[NOMBRE-EN-POSTMAN]['tmp_name']
-			if(is_uploaded_file($_FILES['imgToUpload']['tmp_name']))
-			{
-				$uploaded_file = $upDir . basename($_FILES['imgToUpload']['name']."".$dateUpload.".jpg");
+			if(is_uploaded_file($_FILES['imgToUpload']['tmp_name'])){ 
+			
+			$filename = $_FILES['imgToUpload']['name'];
+			$tmp = explode('.', $filename);
+			$file_extension = end($tmp);
+				
+				$uploaded_file = $upDir . basename($tmp[0]."--".$dateUpload.".".$file_extension);
 
 				echo "<br>".$uploaded_file."<br>";
 
@@ -237,12 +242,18 @@
 				}
 			}
 			
+
+			
 			if($result == 1){
 				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
 				$success = array('status' => "Success", "msg" => "soul Created Successfully.", "id" => $this->mysqli->insert_id, "data" => $soul);
 				$this->response($this->json($success),200);
 			}else
 				$this->response('NO SE PUDO SUBIR EL ARCHIVO',204);	//"No Content" status
+
+
+
+
 		}
 		
 		/*
