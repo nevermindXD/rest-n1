@@ -219,7 +219,6 @@
 				$val = "Directorio existe";
 			}
 
-
 			///Files[NOMBRE-EN-POSTMAN]['tmp_name']
 			if(is_uploaded_file($_FILES['imgToUpload']['tmp_name'])){ 
 			
@@ -239,15 +238,57 @@
 			}
 			
 			if($result == 1){
-				
-				$success = array('status' => "Success", "msg" => "soul Created Successfully.", 'name'=>$tmp[0].".".$file_extension);
+				$success = array('status' => "Success", "msg" => "soul Created Successfully.", 'name'=>$tmp[0]."--".$dateUpload.".".$file_extension);
 				$this->response($this->json($success),200);
 			}else
 				$this->response('NO SE PUDO SUBIR EL ARCHIVO',204);	//"No Content" status
 		}
-		
 
+		private function imagenIFE(){
+			if($this->get_request_method() != "POST"){
+				$this->response('',406);
+			}
 
+			//SAVING FILE
+			$upDir = "Cotizaciones/"; //upload directory
+			$dateUpload = date('YmdHis');
+
+			if(!is_dir($upDir)){ 			// Verify if directory exists if not then create the folder
+					if(mkdir($upDir, 0777, true)) {
+					   $val = "Directorio creado"; 
+					}
+					else{
+						$val = "Directorio existe";
+					}
+			}
+			else{
+				$val = "Directorio existe";
+			}
+
+			///Files[NOMBRE-EN-POSTMAN]['tmp_name']
+			if(is_uploaded_file($_FILES['imgToUpload2']['tmp_name'])){ 
+			
+			$filename = $_FILES['imgToUpload2']['name'];
+			$tmp = explode('.', $filename);
+			$file_extension = end($tmp);
+				
+				$uploaded_file = $upDir . basename($tmp[0]."--".$dateUpload.".".$file_extension);
+
+								
+				if (move_uploaded_file($_FILES['imgToUpload2']['tmp_name'], $uploaded_file)) 	
+				{
+					$result = 1;
+				} else {
+					$result = 2;
+				}
+			}
+			
+			if($result == 1){
+				$success = array('status' => "Success", "msg" => "soul Created Successfully.", 'name'=>$tmp[0]."--".$dateUpload.".".$file_extension);
+				$this->response($this->json($success),200);
+			}else
+				$this->response('NO SE PUDO SUBIR EL ARCHIVO',204);	//"No Content" status
+		}
 
 		/*
 		 *	Encode array into JSON

@@ -33,7 +33,12 @@
             <label class="title">imgRuta</label>
             <input type="text" id="imgRuta" name="imgRuta" >
         </div>
-        <div> <input type="file" id="imagen" name="imagen"  </div>
+        <br>
+        <div> <input type="file" id="imgToUpload" name="imgToUpload">  </div>
+        <br>
+         <br>
+        <div> <input type="file" id="imgToUpload2" name="imgToUpload2">  </div>
+        <br>
         <div>
             <input type="submit" id="submitButton"  name="submitButton" value="Submit">
         </div>
@@ -55,21 +60,44 @@
       var $form = $( this ),
           url = $form.attr( 'action' );
 
-      /* Send the data using post with element id name and name2*/
-        var data ={
-            nombre: $('#nombre').val(), 
-            marca: $('#marca').val(),
-            modelo: $('#modelo').val(), 
-            precioFactura: $('#precioFactura').val(), 
-            email: $('#email').val(), 
-            img: $('#img').val(), 
-            imgRuta: $('#imgRuta').val()
-        };
-
-    
-        
+        var formData = new FormData();
+        var formData2 = new FormData();
+        formData.append('imgToUpload', $('#imgToUpload')[0].files[0]);
+        formData2.append('imgToUpload2', $('#imgToUpload2')[0].files[0]);
+        $imagen1="N";
+        $imagen1="N2";
 
         $.ajax({
+            url : 'https://localhost/rest-n1/API/imagen',
+            type : 'POST',
+            data : formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success : function(data) {
+   
+                $imagen1=data.name;
+                //console.log($pr);
+                
+            $.ajax({
+                url : 'https://localhost/rest-n1/API/imagenIFE',
+                type : 'POST',
+                data : formData2,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false,  // tell jQuery not to set contentType
+                success : function(data) {
+                    $imagen2=data.name;
+                    console.log($imagen2);
+
+                    var data={
+                        nombre: $('#nombre').val(), 
+                        marca: $('#marca').val(),
+                        modelo: $('#modelo').val(), 
+                        precioFactura: $('#precioFactura').val(), 
+                        email: $('#email').val(), 
+                        img: $imagen1, 
+                        rutaImg: data.name
+                    };
+                $.ajax({
                 url: url,
                 type: 'post',
               //  contentType: 'application/x-www-form-urlencoded',
@@ -81,7 +109,41 @@
                 error: function( jqXhr, textStatus, errorThrown ){
                     console.log( errorThrown );
                 }
+                 });
+                    
+                    
+                },
+                error: function( errorThrown ){
+                        console.log( errorThrown );
+                    }
+             });
+
+
+            },
+            error: function( errorThrown ){
+                    console.log( errorThrown );
+                }
         });
+
+       
+        
+        
+      /* Send the data using post with element id name and name2*/
+       
+/*
+        $.ajax({
+                url: url,
+                type: 'post',
+              //  contentType: 'application/x-www-form-urlencoded',
+                data: JSON.stringify(data),
+                success: function( data, textStatus, jQxhr ){
+                    $('#response pre').html( data );
+                    //console.log(data);
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+        });*/
 
 
     });
