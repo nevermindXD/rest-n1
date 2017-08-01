@@ -6,7 +6,7 @@
 <body>
     <form id="formoid" title="" method="POST"  enctype="multipart/form-data">
     
-        <div> <input type="file" id="imgToUpload" name="imgToUpload"  </div>
+        <div> <input type="file" id="imgToUpload" name="imgToUpload" > </div>
         <div>
             <input type="submit" id="submitButton"  name="submitButton" value="Submit">
         </div>
@@ -25,19 +25,22 @@
       event.preventDefault();
 
       var formData = new FormData();
-formData.append('imgToUpload', $('#imgToUpload')[0].files[0]);
+        formData.append('imgToUpload', $('#imgToUpload')[0].files[0]);
 
-$.ajax({
-       url : 'https://localhost/rest-n1/API/imagen',
-       type : 'POST',
-       data : formData,
-       processData: false,  // tell jQuery not to process the data
-       contentType: false,  // tell jQuery not to set contentType
-       success : function(data) {
-           console.log(data);
-           alert(data);
-       }
-});
+        $.ajax({
+            url : 'https://localhost/rest-n1/API/imagen',
+            type : 'POST',
+            data : formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success : function(data) {
+                console.log(data);
+                console.log(data.name);
+            },
+            error: function( errorThrown ){
+                    console.log( errorThrown );
+                }
+        });
 
     });
 

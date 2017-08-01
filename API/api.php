@@ -229,13 +229,9 @@
 				
 				$uploaded_file = $upDir . basename($tmp[0]."--".$dateUpload.".".$file_extension);
 
-				echo "<br>".$uploaded_file."<br>";
-
-				
+								
 				if (move_uploaded_file($_FILES['imgToUpload']['tmp_name'], $uploaded_file)) 	
 				{
-								echo " "."<br>Subiendo archivo"."<br>";
-				$this->response($this->json($val),200);
 					$result = 1;
 				} else {
 					$result = 2;
@@ -243,82 +239,14 @@
 			}
 			
 			if($result == 1){
-				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
-				$success = array('status' => "Success", "msg" => "soul Created Successfully.", "id" => $this->mysqli->insert_id, "data" => $soul);
+				
+				$success = array('status' => "Success", "msg" => "soul Created Successfully.", 'name'=>$tmp[0].".".$file_extension);
 				$this->response($this->json($success),200);
 			}else
 				$this->response('NO SE PUDO SUBIR EL ARCHIVO',204);	//"No Content" status
 		}
 		
-		private function imagenWithInfo(){
-			if($this->get_request_method() != "POST"){
-				$this->response('',406);
-			}
 
-		//recuperado del insert 
-			$recordObject = json_decode(file_get_contents("php://input"),true);
-			$column_names = $this->tableColumns;
-
-			$keys = array_keys($recordObject);
-			$columns = '';
-			$values = '';
-
-			foreach($column_names as $desired_key){ // Check the recordObject received. If blank insert blank into the array.
-			   if(!in_array($desired_key, $keys)) {
-			   		$$desired_key = '';
-				}else{
-					$$desired_key = $recordObject[$desired_key];
-				}
-				$columns = $columns.$desired_key.',';
-				$values = $values."'".$$desired_key."',";
-			}
-
-			//SAVING FILE
-			$upDir = "Cotizaciones/"; //upload directory
-			$dateUpload = date('YmdHis');
-
-			if(!is_dir($upDir)){ 			// Verify if directory exists if not then create the folder
-					if(mkdir($upDir, 0777, true)) {
-					   $val = "Directorio creado"; 
-					}
-					else{
-						$val = "Directorio existe";
-					}
-			}
-			else{
-				$val = "Directorio existe";
-			}
-
-
-			///Files[NOMBRE-EN-POSTMAN]['tmp_name']
-			if(is_uploaded_file($_FILES['imgToUpload']['tmp_name'])){ 
-			
-			$filename = $_FILES['imgToUpload']['name'];
-			$tmp = explode('.', $filename);
-			$file_extension = end($tmp);
-				
-				$uploaded_file = $upDir . basename($tmp[0]."--".$dateUpload.".".$file_extension);
-
-				echo "<br>".$uploaded_file."<br>";
-
-				
-				if (move_uploaded_file($_FILES['imgToUpload']['tmp_name'], $uploaded_file)) 	
-				{
-								echo " "."<br>Subiendo archivo"."<br>";
-				$this->response($this->json($val),200);
-					$result = 1;
-				} else {
-					$result = 2;
-				}
-			}
-			
-			if($result == 1){
-				$r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
-				$success = array('status' => "Success", "msg" => "soul Created Successfully.", "id" => $this->mysqli->insert_id, "data" => $soul);
-				$this->response($this->json($success),200);
-			}else
-				$this->response('NO SE PUDO SUBIR EL ARCHIVO',204);	//"No Content" status
-		}
 
 
 		/*

@@ -67,7 +67,7 @@
         };
 
     
-        console.log(data);
+        
 
         $.ajax({
                 url: url,
@@ -76,14 +76,13 @@
                 data: JSON.stringify(data),
                 success: function( data, textStatus, jQxhr ){
                     $('#response pre').html( data );
+                    console.log(data);
                 },
                 error: function( jqXhr, textStatus, errorThrown ){
                     console.log( errorThrown );
                 }
         });
 
-
-        console.log("finalizo");
 
     });
 
