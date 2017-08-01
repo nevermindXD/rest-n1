@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+    <form id="formoid" title="" method="post" action="https://localhost/rest-n1/API/imagen">
+        <div> <input type="file" id="imagen" name="imagen"  </div>
+        <div>
+            <input type="submit" id="submitButton"  name="submitButton" value="Submit">
+        </div>
+ </form>
+
+
+</body>
+
+
+<script> 
+
+    /* attach a submit handler to the form */
+    $("#formoid").submit(function(event) {
+        
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+        var data ={
+            nombre: $('#imagen').val(), 
+        };
+
+    
+        console.log(data);
+
+        $.ajax({
+                url: url,
+                type: 'post',
+              //  contentType: 'application/x-www-form-urlencoded',
+                data: JSON.stringify(data),
+                success: function( data, textStatus, jQxhr ){
+                    $('#response pre').html( data );
+                },
+                error: function( jqXhr, textStatus, errorThrown ){
+                    console.log( errorThrown );
+                }
+        });
+
+
+        console.log("finalizo");
+
+    });
+
+</script>
+</html> 
