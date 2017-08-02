@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <label for="id_cotizacion" name="id_cotizacion" id="id_cotizacion">id_cotizacion: </label>
+    <br>
+    <label for="nombre" name="nombre" id="nombre">Nombre: </label>
+    <br>
+    <label for="marca" name="marca" id="marca">Marca: </label>
+    <br>
+    <label for="modelo" name="modelo" id="modelo">Modelo: </label>
+    <br>
+    <label for="precioFactura" name="precioFactura" id="precioFactura">precioFactura: </label>
+    <br>
+    <label for="email" name="email" id="email">email: </label>
+    <br>
+    <label for="img" name="img" id="img">img: </label>
+    <br>
+    <label for="rutaImg" name="rutaImg" id="rutaImg">rutaImg: </label>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // var response = {
+        //     "id_cotizacion": "Here comes the id",
+        //     "nombre": "Here comes the name",
+        //     "marca": "Here comes the brand",
+        //     "modelo": "Here comes the model",
+        //     "precioFactura": "Here come the price",
+        //     "email": "Here comes the email",
+        //     "img": "here comes the image",
+        //     "rutaImg": "Here comes the image, too"
+        // }
+        $.ajax({
+            url: 'http://localhost/rest-n1/API/get/2', //aqui va tu URL
+            type: 'GET',
+            success: function (response) {//lo que recibe de parametro la funcion, es la respuesta de tu peticion GET
+                // estas variables las agregue solo para ejemplificar
+                //var response = JSON.stringify(data);
+                //var response = data.response;
+                response = response[0];
+             //   console.log(response); 
+                var id_cotizacion = response['id_cotizacion'];
+                var nombre = response['nombre'];
+                var marca = response['marca'];
+                var modelo = response['modelo'];
+                var precioFactura = response['precioFactura'];
+                var email = response['email'];
+                var img = response['img'];
+                var rutaImg = response['rutaImg'];
+
+                // console.log(id_cotizacion," ",nombre, " ", marca," ",modelo," ",precioFactura, " ",email," ",img," ",rutaImg );
+
+                $('#id_cotizacion').html(id_cotizacion); //esta instruccion indica que en el campo que tenga el id NOMBRE (#id_cotizacion) pondras el valor (variable a cargar);
+                $('#nombre').html(nombre); //esta instruccion indica que en el campo que tenga el id NOMBRE (#id_cotizacion) pondras el valor (variable a cargar);
+                $('#marca').html(marca);
+                $('#modelo').html(modelo);
+                $('#precioFactura').html(precioFactura);
+                $('#email').html(email);
+                $('#img').html(img);
+                $('#rutaImg').html(rutaImg);
+            }
+
+        });
+    });
+</script>
+
+</html>
