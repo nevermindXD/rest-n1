@@ -32,19 +32,31 @@
     $(document).ready(function () {
 
         $.ajax({
-            url: 'http://localhost/rest-n1/API/get/2', //aqui va tu URL
+            url: 'http://localhost/~eduardoherreradominguez/rest-n1/API/get/2', //aqui va tu URL
             type: 'GET',
             success: function (response) {//lo que recibe de parametro la funcion, es la respuesta de tu peticion GET
                 response = response[0];
              //   console.log(response); 
-                var id_cotizacion = response['id_cotizacion'];
-                var nombre = response['nombre'];
-                var marca = response['marca'];
-                var modelo = response['modelo'];
-                var precioFactura = response['precioFactura'];
-                var email = response['email'];
-                var img = response['img'];
-                var rutaImg = response['rutaImg'];
+                // var id_cotizacion = response['id_cotizacion'];
+                // var nombre = response['nombre'];
+                // var marca = response['marca'];
+                // var modelo = response['modelo'];
+                // var precioFactura = response['precioFactura'];
+                // var email = response['email'];
+                // var img = response['img'];
+                // var rutaImg = response['rutaImg'];
+                
+                // PUEDES TENER ACCESO DE 2 MANERAS, COMO ARREGLO o POR MEDIO DEL OPERADOR PUNTO.
+
+                var id_cotizacion = response.id_cotizacion;
+                var nombre = response.nombre;
+                var marca = response.marca;
+                var modelo = response.modelo;
+                var precioFactura = response.precioFactura;
+                var email = response.email;
+                var img = response.img;
+                var rutaImg = response.rutaImg;
+
 
                 $('#id_cotizacion').html(id_cotizacion); //esta instruccion indica que en el campo que tenga el id NOMBRE (#id_cotizacion) pondras el valor (variable a cargar);
                 $('#nombre').html(nombre); //esta instruccion indica que en el campo que tenga el id NOMBRE (#id_cotizacion) pondras el valor (variable a cargar);
