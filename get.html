@@ -31,23 +31,10 @@
 <script>
     $(document).ready(function () {
 
-        // var response = {
-        //     "id_cotizacion": "Here comes the id",
-        //     "nombre": "Here comes the name",
-        //     "marca": "Here comes the brand",
-        //     "modelo": "Here comes the model",
-        //     "precioFactura": "Here come the price",
-        //     "email": "Here comes the email",
-        //     "img": "here comes the image",
-        //     "rutaImg": "Here comes the image, too"
-        // }
         $.ajax({
             url: 'http://localhost/rest-n1/API/get/2', //aqui va tu URL
             type: 'GET',
             success: function (response) {//lo que recibe de parametro la funcion, es la respuesta de tu peticion GET
-                // estas variables las agregue solo para ejemplificar
-                //var response = JSON.stringify(data);
-                //var response = data.response;
                 response = response[0];
              //   console.log(response); 
                 var id_cotizacion = response['id_cotizacion'];
@@ -58,8 +45,6 @@
                 var email = response['email'];
                 var img = response['img'];
                 var rutaImg = response['rutaImg'];
-
-                // console.log(id_cotizacion," ",nombre, " ", marca," ",modelo," ",precioFactura, " ",email," ",img," ",rutaImg );
 
                 $('#id_cotizacion').html(id_cotizacion); //esta instruccion indica que en el campo que tenga el id NOMBRE (#id_cotizacion) pondras el valor (variable a cargar);
                 $('#nombre').html(nombre); //esta instruccion indica que en el campo que tenga el id NOMBRE (#id_cotizacion) pondras el valor (variable a cargar);
